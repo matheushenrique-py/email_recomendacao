@@ -1,0 +1,238 @@
+<html>
+<!-- HTML 4 -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- HTML5 -->
+<meta charset="utf-8"/>
+<head>
+    <style>
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Sans Unicode', 'Verdana', sans-serif;
+            background-color: #eeeeee;
+        }
+
+        a {
+        font-weight: bold;
+        font-size: 10px;
+        color: #ffffff;
+        text-decoration: none;
+        text-align: center;
+        }
+
+        strong {
+        color: #dd3937;
+        font-size: 20px;
+        }
+
+        em {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        text-transform: uppercase;
+        display: block;
+        }
+
+        h1 {
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        }
+
+        h2 {
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        color: #ffffff;
+        margin: 2px;
+        }
+
+        .corpo {
+        max-width: 700px;
+        margin: auto;
+        display: block;
+        overflow: auto;
+        background-color: #ffffff;
+        }
+
+        .cabecalho {
+        max-width: 100%;
+        height: auto;
+        object-fit: scale-down;
+        }
+
+        .recomendacao {
+        width: calc(100% - 40px);
+        height: 200px;
+        margin: 20px;
+        }
+
+        .esquerda {
+        width: 50%;
+        text-align: left;
+        float: left;
+        display: inline;
+        }
+
+        .direita {
+        width: 50%;
+        text-align: right;
+        float: right;
+        display: inline;
+        }
+
+        .img_produto {
+        float: left;
+        width: auto;
+        height: 200px;
+        object-fit: scale-down;
+        margin-bottom: 10px;
+        }
+
+        .bt_comprar {
+        display: inline-block;
+        width: 150px;
+        padding: 10px 20px;
+        margin-top: 10px;
+        background-color: #dd3937;
+        font-size: 16px;
+        font-weight: bold;
+        color: #ffffff;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 10px;
+        }
+
+        .bt_horarios {
+        display: block;
+        width: 300px;
+        padding: 10px 20px;
+        margin: auto;
+        background-color: #dd3937;
+        font-size: 16px;
+        font-weight: bold;
+        color: #ffffff;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 1px 1px 2px #3D454D;
+        }
+
+        .aviso_aberto {
+        background-color: #ffc600;
+        padding: 10px;
+        }
+
+        .central_atendimento {
+        background-color: #0097d8;
+        padding: 10px;
+        }
+
+        .social_conjunto {
+        display: flex;
+        justify-content: center;
+        margin: 20px;
+        }
+
+        .redes_sociais {
+        width: 75px;
+        display: inline-block;
+        }
+
+        .logo_social {
+        margin: auto;
+        display: block;
+        width: 40px;
+        height: auto;
+        object-fit: scale-down;
+        }
+    </style>
+</head>
+<body>
+    <div class="corpo">
+        <header>
+            <img src="data/cabecalho.png", alt="logo Lojas Bemol", class="cabecalho">
+        </header>
+
+        <div class="recomendacao">
+            <div class="esquerda">
+                <img src="{{img_produto1}}", class="img_produto", alt="{{nome_produto1}}">
+            </div>
+            <div class="direita">
+                </br>
+                <em>{{nome_produto1}}</em></br>
+                <strong>{{preco_produto1}}</strong></br>
+                <small>4x de {{parcela_produto1}} no Cartão Bemol</small></br>
+                <a href="{{link_produto1}}", class="bt_comprar">COMPRAR</a>
+            </div>
+        </div>
+
+        <div class="recomendacao">
+            <div class="esquerda">
+                </br>
+                <em>{{nome_produto2}}</em></br>
+                <strong>{{preco_produto2}}</strong></br>
+                <small>4x de {{parcela_produto2}} no Cartão Bemol</small></br>
+                <a href="{{link_produto2}}", class="bt_comprar">COMPRAR</a>
+            </div>
+            <div class="direita">
+                <img src="{{img_produto2}}", class="img_produto", alt="{{nome_produto2}}">
+            </div>
+        </div>
+
+        <div class="recomendacao">
+            <div class="esquerda">
+                <img src="{{img_produto3}}", class="img_produto", alt="{{nome_produto3}}">
+            </div>
+            <div class="direita">
+                </br>
+                <em>{{nome_produto3}}</em></br>
+                <strong>{{preco_produto3}}</strong></br>
+                <small>4x de {{parcela_produto3}} no Cartão Bemol</small></br>
+                <a href="{{link_produto3}}", class="bt_comprar">COMPRAR</a>
+            </div>
+        </div>
+
+        <footer>
+            <div class="aviso_aberto">
+                <h1>As farmácias estão abertas para pagamentos de parcelas do carnê Bemol!</h1>
+                <a href="#", class="bt_horarios">CONFIRA OS HORÁRIOS</a>
+            </div>
+            <div class="central_atendimento">
+                <div class="social_conjunto">
+                    <div class="redes_sociais">
+                        <a href="https://www.facebook.com/bemolonline">
+                            <img src="data/facebook.png", class="logo_social">
+                            <p>facebook</p>
+                        </a>
+                    </div>
+                    <div class="redes_sociais">
+                        <a href="https://twitter.com/BemolOnline">
+                            <img src="data/twitter.png", class="logo_social">
+                            <p>twitter</p>
+                        </a>
+                    </div>
+                    <div class="redes_sociais">
+                        <a href="https://www.instagram.com/bemolonline/">
+                            <img src="data/instagram.png", class="logo_social">
+                            <p>instagram</p>
+                        </a>
+                    </div>
+                    <div class="redes_sociais">
+                        <a href="https://www.linkedin.com/company/bemol-fog-s">
+                            <img src="data/linkedin.png", class="logo_social">
+                            <p>linkedin</p>
+                        </a>
+                    </div>
+                    <div class="redes_sociais">
+                        <a href="https://www.youtube.com/user/lojasbemol">
+                            <img src="data/youtube.png", class="logo_social">
+                            <p>youtube</p>
+                        </a>
+                    </div>
+                </div>
+                <h2>Central de Atendimento Bemol</h2>
+                <h2>0800 726 8300</h2>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
