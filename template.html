@@ -16,19 +16,27 @@
         color: #ffffff;
         text-decoration: none;
         text-align: center;
+        float: center;
+        display: block;
         }
 
         strong {
         color: #dd3937;
-        font-size: 20px;
+        font-size: 30px;
+        display: block;
+        text-transform: capitalize;
         }
 
         em {
         font-style: normal;
         font-weight: bold;
-        font-size: 14px;
-        text-transform: uppercase;
+        font-size: 18px;
         display: block;
+        margin-top: 10px;
+        }
+
+        small {
+        color: #666666;
         }
 
         h1 {
@@ -80,7 +88,6 @@
         }
 
         .img_produto {
-        float: left;
         width: auto;
         height: 200px;
         object-fit: scale-down;
@@ -127,9 +134,8 @@
         }
 
         .social_conjunto {
-        display: flex;
-        justify-content: center;
-        margin: 20px;
+        padding-left: calc(50% - 196px);
+        padding-right: calc(50% - 196px);
         }
 
         .redes_sociais {
@@ -139,6 +145,7 @@
 
         .logo_social {
         margin: auto;
+        padding-bottom: 5px;
         display: block;
         width: 40px;
         height: auto;
@@ -149,7 +156,7 @@
 <body>
     <div class="corpo">
         <header>
-            <img src="data/cabecalho.png", alt="logo Lojas Bemol", class="cabecalho">
+            <img src="https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/cabecalho.png", alt="logo Lojas Bemol", class="cabecalho">
         </header>
 
         <div class="recomendacao">
@@ -157,20 +164,18 @@
                 <img src="{{img_produto1}}", class="img_produto", alt="{{nome_produto1}}">
             </div>
             <div class="direita">
-                </br>
-                <em>{{nome_produto1}}</em></br>
-                <strong>{{preco_produto1}}</strong></br>
-                <small>4x de {{parcela_produto1}} no Cartão Bemol</small></br>
+                <em>{{nome_produto1}}</em>
+                <strong>R$ {{preco_produto1}}</strong>
+                <small>4x de R$ {{parcela_produto1}} no Cartão Bemol</small>
                 <a href="{{link_produto1}}", class="bt_comprar">COMPRAR</a>
             </div>
         </div>
 
         <div class="recomendacao">
             <div class="esquerda">
-                </br>
-                <em>{{nome_produto2}}</em></br>
-                <strong>{{preco_produto2}}</strong></br>
-                <small>4x de {{parcela_produto2}} no Cartão Bemol</small></br>
+                <em>{{nome_produto2}}</em>
+                <strong>R$ {{preco_produto2}}</strong>
+                <small>4x de R$ {{parcela_produto2}} no Cartão Bemol</small>
                 <a href="{{link_produto2}}", class="bt_comprar">COMPRAR</a>
             </div>
             <div class="direita">
@@ -183,10 +188,9 @@
                 <img src="{{img_produto3}}", class="img_produto", alt="{{nome_produto3}}">
             </div>
             <div class="direita">
-                </br>
-                <em>{{nome_produto3}}</em></br>
-                <strong>{{preco_produto3}}</strong></br>
-                <small>4x de {{parcela_produto3}} no Cartão Bemol</small></br>
+                <em>{{nome_produto3}}</em>
+                <strong>R$ {{preco_produto3}}</strong>
+                <small>4x de R$ {{parcela_produto3}} no Cartão Bemol</small>
                 <a href="{{link_produto3}}", class="bt_comprar">COMPRAR</a>
             </div>
         </div>
@@ -200,32 +204,32 @@
                 <div class="social_conjunto">
                     <div class="redes_sociais">
                         <a href="https://www.facebook.com/bemolonline">
-                            <img src="data/facebook.png", class="logo_social">
-                            <p>facebook</p>
+                            <img src="https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/facebook.png", class="logo_social">
+                            facebook
                         </a>
                     </div>
                     <div class="redes_sociais">
                         <a href="https://twitter.com/BemolOnline">
-                            <img src="data/twitter.png", class="logo_social">
-                            <p>twitter</p>
+                            <img src="https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/twitter.png", class="logo_social">
+                            twitter
                         </a>
                     </div>
                     <div class="redes_sociais">
                         <a href="https://www.instagram.com/bemolonline/">
-                            <img src="data/instagram.png", class="logo_social">
-                            <p>instagram</p>
+                            <img src="https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/instagram.png", class="logo_social">
+                            instagram
                         </a>
                     </div>
                     <div class="redes_sociais">
                         <a href="https://www.linkedin.com/company/bemol-fog-s">
-                            <img src="data/linkedin.png", class="logo_social">
-                            <p>linkedin</p>
+                            <img src="https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/linkedin.png", class="logo_social">
+                            linkedin
                         </a>
                     </div>
                     <div class="redes_sociais">
                         <a href="https://www.youtube.com/user/lojasbemol">
-                            <img src="data/youtube.png", class="logo_social">
-                            <p>youtube</p>
+                            <img src="https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/youtube.png", class="logo_social">
+                            youtube
                         </a>
                     </div>
                 </div>
