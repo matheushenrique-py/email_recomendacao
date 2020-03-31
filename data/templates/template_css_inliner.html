@@ -5,89 +5,91 @@
 <meta charset="utf-8">
 <head>
     
+
 </head>
 <body style="font-family: myriad-pro, sans-serif; font-weight: 400; font-style: normal; background-color: #eeeeee;">
     <div class="corpo" style="max-width: 700px; margin: auto; display: block; overflow: auto; background-color: #ffffff;">
         <header>
-            <img src="https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/imgs/cabecalho.png" ,="" alt="logo Lojas Bemol" class="cabecalho" style="max-width: 100%; height: auto; object-fit: scale-down;">
+            <a href="https://www.bemol.com.br" style="font-family: sans-serif; font-weight: 200; font-size: 62%; color: #ffffff; text-decoration: none; text-align: center; float: center; display: block; border: 0;">
+            <img src="https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/imgs/cabecalho.png" ,="" alt="logo Lojas Bemol" class="cabecalho" style="max-width: 100%; height: auto; object-fit: scale-down;"></a>
         </header>
 
-        <div class="recomendacao" style="width: calc(100% - 40px); height: 280px; margin: 20px; display: block;">
+        <div class="recomendacao" style="width: calc(100% - 40px); margin: 20px; display: table;">
             <div class="esquerda" style="width: 50%; text-align: left; float: left; display: inline;">
                 <img src="{{img_produto1}}" ,="" class="img_produto" alt="{{nome_produto1}}" style="width: 98%; max-height: 200px; object-fit: scale-down;">
             </div>
             <div class="direita" style="width: 50%; text-align: right; float: right; display: inline;">
-                <em style="font-style: normal; font-weight: bold; font-size: 23px; display: block; margin-top: 10px;">{{nome_produto1}}</em>
-                <strong style="color: #dd3937; font-size: 32px; display: block; text-transform: capitalize;">R$ {{preco_produto1}}</strong>
-                <small style="font-family: sans-serif; color: #666666; font-size: 14px; font-weight: 100; display: block;">4x de R$ {{parcela_produto1}} no Cartão Bemol</small>
-                <a href="{{link_produto1}}" ,="" class="bt_comprar" style="font-family: sans-serif; float: center; display: inline-block; width: 50%; padding: 10px 5%; margin-top: 10px; background-color: #dd3937; font-size: 16px; font-weight: bold; color: #ffffff; text-decoration: none; text-align: center; border-radius: 10px;">COMPRAR</a>
+                <em style="font-style: normal; font-weight: bold; font-size: calc(9px + 0.7vw); display: block; margin-top: 10px;">{{nome_produto1}}</em>
+                <strong style="color: #dd3937; font-size: calc(18px + 0.7vw); display: block; text-transform: capitalize;">R$ {{preco_produto1}}</strong>
+                <small style="font-family: sans-serif; color: #666666; font-size: calc(2px + 0.7vw); font-weight: 100; display: block;">4x de R$ {{parcela_produto1}} no Cartão Bemol</small>
+                <a href="{{link_produto1}}" ,="" class="bt_comprar" style="font-family: sans-serif; float: center; border: 0; display: inline-block; width: 50%; padding: 10px 5%; margin-top: 10px; background-color: #dd3937; font-size: calc(6px + 0.7vw); font-weight: bold; color: #ffffff; text-decoration: none; text-align: center; border-radius: 10px;">COMPRAR</a>
             </div>
         </div>
 
-        <div class="recomendacao" style="width: calc(100% - 40px); height: 280px; margin: 20px; display: block;">
+        <div class="recomendacao" style="width: calc(100% - 40px); margin: 20px; display: table;">
             <div class="esquerda" style="width: 50%; text-align: left; float: left; display: inline;">
-                <em style="font-style: normal; font-weight: bold; font-size: 23px; display: block; margin-top: 10px;">{{nome_produto2}}</em>
-                <strong style="color: #dd3937; font-size: 32px; display: block; text-transform: capitalize;">R$ {{preco_produto2}}</strong>
-                <small style="font-family: sans-serif; color: #666666; font-size: 14px; font-weight: 100; display: block;">4x de R$ {{parcela_produto2}} no Cartão Bemol</small>
-                <a href="{{link_produto2}}" ,="" class="bt_comprar" style="font-family: sans-serif; float: center; display: inline-block; width: 50%; padding: 10px 5%; margin-top: 10px; background-color: #dd3937; font-size: 16px; font-weight: bold; color: #ffffff; text-decoration: none; text-align: center; border-radius: 10px;">COMPRAR</a>
+                <em style="font-style: normal; font-weight: bold; font-size: calc(9px + 0.7vw); display: block; margin-top: 10px;">{{nome_produto2}}</em>
+                <strong style="color: #dd3937; font-size: calc(18px + 0.7vw); display: block; text-transform: capitalize;">R$ {{preco_produto2}}</strong>
+                <small style="font-family: sans-serif; color: #666666; font-size: calc(2px + 0.7vw); font-weight: 100; display: block;">4x de R$ {{parcela_produto2}} no Cartão Bemol</small>
+                <a href="{{link_produto2}}" ,="" class="bt_comprar" style="font-family: sans-serif; float: center; border: 0; display: inline-block; width: 50%; padding: 10px 5%; margin-top: 10px; background-color: #dd3937; font-size: calc(6px + 0.7vw); font-weight: bold; color: #ffffff; text-decoration: none; text-align: center; border-radius: 10px;">COMPRAR</a>
             </div>
             <div class="direita" style="width: 50%; text-align: right; float: right; display: inline;">
                 <img src="{{img_produto2}}" ,="" class="img_produto" alt="{{nome_produto2}}" style="width: 98%; max-height: 200px; object-fit: scale-down;">
             </div>
         </div>
 
-        <div class="recomendacao" style="width: calc(100% - 40px); height: 280px; margin: 20px; display: block;">
+        <div class="recomendacao" style="width: calc(100% - 40px); margin: 20px; display: table;">
             <div class="esquerda" style="width: 50%; text-align: left; float: left; display: inline;">
                 <img src="{{img_produto3}}" ,="" class="img_produto" alt="{{nome_produto3}}" style="width: 98%; max-height: 200px; object-fit: scale-down;">
             </div>
             <div class="direita" style="width: 50%; text-align: right; float: right; display: inline;">
-                <em style="font-style: normal; font-weight: bold; font-size: 23px; display: block; margin-top: 10px;">{{nome_produto3}}</em>
-                <strong style="color: #dd3937; font-size: 32px; display: block; text-transform: capitalize;">R$ {{preco_produto3}}</strong>
-                <small style="font-family: sans-serif; color: #666666; font-size: 14px; font-weight: 100; display: block;">4x de R$ {{parcela_produto3}} no Cartão Bemol</small>
-                <a href="{{link_produto3}}" ,="" class="bt_comprar" style="font-family: sans-serif; float: center; display: inline-block; width: 50%; padding: 10px 5%; margin-top: 10px; background-color: #dd3937; font-size: 16px; font-weight: bold; color: #ffffff; text-decoration: none; text-align: center; border-radius: 10px;">COMPRAR</a>
+                <em style="font-style: normal; font-weight: bold; font-size: calc(9px + 0.7vw); display: block; margin-top: 10px;">{{nome_produto3}}</em>
+                <strong style="color: #dd3937; font-size: calc(18px + 0.7vw); display: block; text-transform: capitalize;">R$ {{preco_produto3}}</strong>
+                <small style="font-family: sans-serif; color: #666666; font-size: calc(2px + 0.7vw); font-weight: 100; display: block;">4x de R$ {{parcela_produto3}} no Cartão Bemol</small>
+                <a href="{{link_produto3}}" ,="" class="bt_comprar" style="font-family: sans-serif; float: center; border: 0; display: inline-block; width: 50%; padding: 10px 5%; margin-top: 10px; background-color: #dd3937; font-size: calc(6px + 0.7vw); font-weight: bold; color: #ffffff; text-decoration: none; text-align: center; border-radius: 10px;">COMPRAR</a>
             </div>
         </div>
 
         <footer>
             <div class="aviso_aberto" style="background-color: #ffc600; padding: 20px;">
-                <h1 style="text-align: center; font-size: 24px; font-weight: bold;">As farmácias estão abertas para pagamentos de parcelas do carnê Bemol!</h1>
-                <a href="https://www.bemol.com.br/horarios-especiais" ,="" class="bt_horarios" style="font-family: sans-serif; float: center; display: block; max-width: 60%; padding: 10px 20px; margin: auto; background-color: #dd3937; font-size: 16px; font-weight: bold; color: #ffffff; text-decoration: none; text-align: center; border-radius: 10px; box-shadow: 1px 1px 2px #3D454D;">CONFIRA OS HORÁRIOS</a>
+                <h1 style="text-align: center; font-size: calc(14px + 0.7vw); font-weight: bold;">As farmácias estão abertas para pagamentos de parcelas do carnê Bemol!</h1>
+                <a href="https://www.bemol.com.br/horarios-especiais" ,="" class="bt_horarios" style="font-family: sans-serif; float: center; border: 0; display: block; max-width: 60%; padding: 10px 20px; margin: auto; background-color: #dd3937; font-size: calc(6px + 0.7vw); font-weight: bold; color: #ffffff; text-decoration: none; text-align: center; border-radius: 10px; box-shadow: 1px 1px 2px #3D454D;">CONFIRA OS HORÁRIOS</a>
             </div>
             <div class="central_atendimento" style="background-color: #0097d8; padding: 20px 0; display: block;">
-                <div class="social_conjunto" style="padding-left: 20%; padding-right: 20%; display: block;">
-                    <div class="redes_sociais" style="width: 15%; display: inline-block; margin: 2%;">
-                        <a href="https://www.facebook.com/bemolonline" style="font-family: sans-serif; font-weight: 200; font-size: 68%; color: #ffffff; text-decoration: none; text-align: center; float: center; display: block;">
-                            <img src="https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/imgs/facebook.png" ,="" class="logo_social" style="margin: auto; padding-bottom: 5px; display: block; width: 90%; height: auto; object-fit: scale-down;">
+                <div class="social_conjunto" style="padding-left: 15%; padding-right: 15%; display: block;">
+                    <div class="redes_sociais" style="width: 14%; display: inline-block; margin: 2%;">
+                        <a href="https://www.facebook.com/bemolonline" style="font-family: sans-serif; font-weight: 200; font-size: 62%; color: #ffffff; text-decoration: none; text-align: center; float: center; display: block; border: 0;">
+                            <img src="https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/imgs/facebook.png" ,="" class="logo_social" style="margin: auto; padding-bottom: 5px; display: block; width: 75%; height: auto; object-fit: scale-down;">
                             facebook
                         </a>
                     </div>
-                    <div class="redes_sociais" style="width: 15%; display: inline-block; margin: 2%;">
-                        <a href="https://twitter.com/BemolOnline" style="font-family: sans-serif; font-weight: 200; font-size: 68%; color: #ffffff; text-decoration: none; text-align: center; float: center; display: block;">
-                            <img src="https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/imgs/twitter.png" ,="" class="logo_social" style="margin: auto; padding-bottom: 5px; display: block; width: 90%; height: auto; object-fit: scale-down;">
+                    <div class="redes_sociais" style="width: 14%; display: inline-block; margin: 2%;">
+                        <a href="https://twitter.com/BemolOnline" style="font-family: sans-serif; font-weight: 200; font-size: 62%; color: #ffffff; text-decoration: none; text-align: center; float: center; display: block; border: 0;">
+                            <img src="https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/imgs/twitter.png" ,="" class="logo_social" style="margin: auto; padding-bottom: 5px; display: block; width: 75%; height: auto; object-fit: scale-down;">
                             twitter
                         </a>
                     </div>
-                    <div class="redes_sociais" style="width: 15%; display: inline-block; margin: 2%;">
-                        <a href="https://www.instagram.com/bemolonline/" style="font-family: sans-serif; font-weight: 200; font-size: 68%; color: #ffffff; text-decoration: none; text-align: center; float: center; display: block;">
-                            <img src="https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/imgs/instagram.png" ,="" class="logo_social" style="margin: auto; padding-bottom: 5px; display: block; width: 90%; height: auto; object-fit: scale-down;">
+                    <div class="redes_sociais" style="width: 14%; display: inline-block; margin: 2%;">
+                        <a href="https://www.instagram.com/bemolonline/" style="font-family: sans-serif; font-weight: 200; font-size: 62%; color: #ffffff; text-decoration: none; text-align: center; float: center; display: block; border: 0;">
+                            <img src="https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/imgs/instagram.png" ,="" class="logo_social" style="margin: auto; padding-bottom: 5px; display: block; width: 75%; height: auto; object-fit: scale-down;">
                             instagram
                         </a>
                     </div>
-                    <div class="redes_sociais" style="width: 15%; display: inline-block; margin: 2%;">
-                        <a href="https://www.linkedin.com/company/bemol-fog-s" style="font-family: sans-serif; font-weight: 200; font-size: 68%; color: #ffffff; text-decoration: none; text-align: center; float: center; display: block;">
-                            <img src="https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/imgs/linkedin.png" ,="" class="logo_social" style="margin: auto; padding-bottom: 5px; display: block; width: 90%; height: auto; object-fit: scale-down;">
+                    <div class="redes_sociais" style="width: 14%; display: inline-block; margin: 2%;">
+                        <a href="https://www.linkedin.com/company/bemol-fog-s" style="font-family: sans-serif; font-weight: 200; font-size: 62%; color: #ffffff; text-decoration: none; text-align: center; float: center; display: block; border: 0;">
+                            <img src="https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/imgs/linkedin.png" ,="" class="logo_social" style="margin: auto; padding-bottom: 5px; display: block; width: 75%; height: auto; object-fit: scale-down;">
                             linkedin
                         </a>
                     </div>
-                    <div class="redes_sociais" style="width: 15%; display: inline-block; margin: 2%;">
-                        <a href="https://www.youtube.com/user/lojasbemol" style="font-family: sans-serif; font-weight: 200; font-size: 68%; color: #ffffff; text-decoration: none; text-align: center; float: center; display: block;">
-                            <img src="https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/imgs/youtube.png" ,="" class="logo_social" style="margin: auto; padding-bottom: 5px; display: block; width: 90%; height: auto; object-fit: scale-down;">
+                    <div class="redes_sociais" style="width: 14%; display: inline-block; margin: 2%;">
+                        <a href="https://www.youtube.com/user/lojasbemol" style="font-family: sans-serif; font-weight: 200; font-size: 62%; color: #ffffff; text-decoration: none; text-align: center; float: center; display: block; border: 0;">
+                            <img src="https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/imgs/youtube.png" ,="" class="logo_social" style="margin: auto; padding-bottom: 5px; display: block; width: 75%; height: auto; object-fit: scale-down;">
                             youtube
                         </a>
                     </div>
                 </div>
-                <h2 style="text-align: center; font-size: 24px; font-weight: bold; color: #ffffff; margin: 2px;">Central de Atendimento Bemol</h2>
-                <h2 style="text-align: center; font-size: 24px; font-weight: bold; color: #ffffff; margin: 2px;">0800 726 8300</h2>
+                <h2 style="text-align: center; font-size: calc(14px + 0.7vw); font-weight: bold; color: #ffffff; margin: 2px;">Central de Atendimento Bemol</h2>
+                <h2 style="text-align: center; font-size: calc(14px + 0.7vw); font-weight: bold; color: #ffffff; margin: 2px;">0800 726 8300</h2>
             </div>
         </footer>
     </div>

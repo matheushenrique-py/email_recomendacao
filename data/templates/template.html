@@ -4,30 +4,32 @@
 <!-- HTML5 -->
 <meta charset="utf-8"/>
 <head>
+    
     <style>
         @import url("https://use.typekit.net/hie1cas.css");
 
         body {
-            font-family: myriad-pro, sans-serif;
-            font-weight: 400;
-            font-style: normal;
-            background-color: #eeeeee;
+        font-family: myriad-pro, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        background-color: #eeeeee;
         }
 
         a {
         font-family: sans-serif;
         font-weight: 200;
-        font-size: 68%;
+        font-size: 62%;
         color: #ffffff;
         text-decoration: none;
         text-align: center;
         float: center;
         display: block;
+        border: 0;
         }
 
         strong {
         color: #dd3937;
-        font-size: 32px;
+        font-size: calc(18px + 0.7vw);
         display: block;
         text-transform: capitalize;
         }
@@ -35,7 +37,7 @@
         em {
         font-style: normal;
         font-weight: bold;
-        font-size: 23px;
+        font-size: calc(9px + 0.7vw);
         display: block;
         margin-top: 10px;
         }
@@ -43,20 +45,20 @@
         small {
         font-family: sans-serif;
         color: #666666;
-        font-size: 14px;
+        font-size: calc(2px + 0.7vw);
         font-weight: 100;
         display: block;
         }
 
         h1 {
         text-align: center;
-        font-size: 24px;
+        font-size: calc(14px + 0.7vw);
         font-weight: bold;
         }
 
         h2 {
         text-align: center;
-        font-size: 24px;
+        font-size: calc(14px + 0.7vw);
         font-weight: bold;
         color: #ffffff;
         margin: 2px;
@@ -78,9 +80,8 @@
 
         .recomendacao {
         width: calc(100% - 40px);
-        height: 280px;
         margin: 20px;
-        display: block;
+        display: table;
         }
 
         .esquerda {
@@ -109,7 +110,7 @@
         padding: 10px 5%;
         margin-top: 10px;
         background-color: #dd3937;
-        font-size: 16px;
+        font-size: calc(6px + 0.7vw);
         font-weight: bold;
         color: #ffffff;
         text-decoration: none;
@@ -123,7 +124,7 @@
         padding: 10px 20px;
         margin: auto;
         background-color: #dd3937;
-        font-size: 16px;
+        font-size: calc(6px + 0.7vw);
         font-weight: bold;
         color: #ffffff;
         text-decoration: none;
@@ -144,22 +145,22 @@
         }
 
         .social_conjunto {
-        padding-left: 20%;
-        padding-right: 20%;
+        padding-left: 15%;
+        padding-right: 15%;
         display: block;
         }
 
         .redes_sociais {
-        width: 15%;
+        width: 14%;
         display: inline-block;
-        margin: 2%
+        margin: 2%;
         }
 
         .logo_social {
         margin: auto;
         padding-bottom: 5px;
         display: block;
-        width: 90%;
+        width: 75%;
         height: auto;
         object-fit: scale-down;
         }
@@ -168,7 +169,8 @@
 <body>
     <div class="corpo">
         <header>
-            <img src="https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/imgs/cabecalho.png", alt="logo Lojas Bemol", class="cabecalho">
+            <a href="https://www.bemol.com.br">
+            <img src="https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/imgs/cabecalho.png", alt="logo Lojas Bemol", class="cabecalho"></a>
         </header>
 
         <div class="recomendacao">
