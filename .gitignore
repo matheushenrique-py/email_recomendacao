@@ -2,3 +2,4 @@ venv/
 .idea/
 data/base_teste_30-03.csv
 data/logs/
+data/relatorios

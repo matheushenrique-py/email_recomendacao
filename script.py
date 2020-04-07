@@ -12,10 +12,14 @@ O e-mail enviado no meu fuso horário (-3) é recebido no mesmo momento
 lá em Manaus (-4).
 Deixo o fuso apenas para deixar claro em que localização eu programei 
 '''
+
+loja = input('Rodar para bol ou farma: ')
+is_teste = True
+
 data_fuso = pytz.timezone('America/Recife').localize(datetime.now())
 
 # Leitura da base de recomendações
-recom = pd.read_csv('data/bases/base_final_31-03.csv', sep='\t')
+recom = pd.read_csv('data/bases/base_farma_teste.csv', sep='\t')
 recom['e-mail'] = recom['e-mail'].apply(lambda x: x.replace(' ', ''))
 recom = recom[recom.Estoque > 5]
 
@@ -39,13 +43,24 @@ df = df.merge(recom.loc[:,['CodCliente','e-mail']].drop_duplicates(), left_on='C
 df.dropna(subset=['Recom3'], axis=0,  inplace=True)
 df.index = range(len(df))
 
-'''
-df = df.iloc[0:3, :]
-df['e-mail'] = ['matheusamorim@bemol.com.br', 'matheusamorim@bemol.com.br', 'matheushenrique.py@gmail.com']
-'''
 
-# request para acessar lista de produtos da bol
-url_xml = "https://www.bemol.com.br/feeds/google-merchant"
+df = df.iloc[0:5, :]
+#df['e-mail'] = ['matheusamorim@bemol.com.br', 'matheusamorim@bemol.com.br', 'matheushenrique.py@gmail.com']
+df['e-mail'] = ['sheilanobrega@bemol.com.br', 'lucasalmeida@bemol.com.br', 'zulemavera@bemol.com.br', 'rafaelasousa@bemol.com.br', 'matheusamorim@bemol.com.br']
+
+
+# request para acessar lista de produtos
+if loja == 'bol':
+    url_xml = "https://www.bemol.com.br/feeds/google-merchant"
+    # Codificação do template html em base64
+    with open('data/templates/template_css_inliner.html', 'rb') as file:
+        template = base64.standard_b64encode(file.read()).decode('utf-8')
+else:
+    url_xml = "https://www.bemolfarma.com.br/feeds/google-merchant-farma"
+    # Codificação do template html em base64
+    with open('data/templates/template_farma_css_inliner.html', 'rb') as file:
+        template = base64.standard_b64encode(file.read()).decode('utf-8')
+
 header = {"Accept": "application/xml"}
 r = requests.get(url_xml, headers=header)
 
@@ -72,10 +87,6 @@ for channel in root.findall("channel"):
 df_produtos = pd.DataFrame({'Nome': produtos, 'Imagem': images, 'Link': links, 'Preco': precos}, index=codigos)
 df_produtos['Nome'] = df_produtos['Nome'].apply(lambda x: x.replace(',', '.'))
 
-# Codificação do template html em base64
-with open('data/templates/template_css_inliner.html', 'rb') as file:
-    template = base64.standard_b64encode(file.read()).decode('utf-8')
-
 # função da formatação do json dos emails
 def email_campos(i):
     try:
@@ -94,7 +105,10 @@ def email_campos(i):
 
 # função de envio do lote de emails
 def envio(inicio, fim):
-    file = open('data/logs/log_' + str(data_fuso.strftime('%Y-%m-%d')), 'a')
+    if is_teste:
+        file = open('data/logs/log_teste' + str(data_fuso.strftime('%Y-%m-%d')), 'a')
+    else:
+        file = open('data/logs/log_' + str(data_fuso.strftime('%Y-%m-%d')), 'a')
     file.write('*** envio dia ' + str(data_fuso.strftime('%Y-%m-%d')) + ' envio nº ' + str(int(inicio/LEN_REQ)) + '***\n')
 
     corpo_emails = []
@@ -102,6 +116,8 @@ def envio(inicio, fim):
         if email_campos(i) is not None:
             corpo_emails.append(email_campos(i))
             file.write(email_campos(i)['nm_email'] + ' - '+ email_campos(i)['valor']+ '\n\n')
+        else:
+            print('produto não encontrado')
 
     corpo_completo = {"emails": corpo_emails, "html": template}
     response = requests.post(url, headers=headers, json=corpo_completo)
