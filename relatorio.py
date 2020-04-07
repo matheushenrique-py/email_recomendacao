@@ -38,5 +38,5 @@ for i in range(1, resposta['last_page']+1):
 
 
 df = pd.DataFrame({'status': status, 'abertura': abertura, 'email': email})
-df.to_csv('relatorios/relatorio_'+data_fuso.strftime('%Y-%m-%d')+'.csv', sep=',', index=False, encoding='utf-8')
+df.to_csv('data/relatorios/relatorio_'+data_fuso.strftime('%Y-%m-%d')+'.csv', sep=',', index=False, encoding='utf-8')
 print(pag_erros)
