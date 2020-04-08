@@ -8,15 +8,25 @@
     <style>
         @import url("https://use.typekit.net/hie1cas.css");
 
+        @font-face {
+        font-family: Myriad-pro;
+        src: url("https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/Myriad-pro/MYRIADPRO-REGULAR.OTF");
+        }
+
+        @font-face {
+        font-family: Myriad-pro;
+        src: url(".https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/Myriad-pro/MYRIADPRO-BOLD.OTF");
+        font-weight: 600;
+        }
+
         body {
-        font-family: myriad-pro, sans-serif;
+        font-family: Myriad-pro, Times;
         font-weight: 400;
         font-style: normal;
-        background-color: #eeeeee;
+        background-color: #ffffff;
         }
 
         a {
-        font-family: sans-serif;
         font-weight: 500;
         font-size: 62%;
         color: #000000;
@@ -36,16 +46,15 @@
 
         em {
         font-style: normal;
-        font-weight: bold;
+        font-weight: 600;
         font-size: calc(9px + 0.7vw);
         display: block;
         margin-top: 10px;
         }
 
         small {
-        font-family: sans-serif;
-        color: #666666;
-        font-size: calc(2px + 0.7vw);
+        color: #444444;
+        font-size: calc(2.5px + 0.7vw);
         font-weight: 100;
         display: block;
         }
@@ -53,7 +62,7 @@
         h1 {
         text-align: center;
         font-size: calc(14px + 0.7vw);
-        font-weight: bold;
+        font-weight: 600;
         color: #ffffff;
         margin: 2px;
         }
@@ -61,8 +70,16 @@
         h2 {
         text-align: center;
         font-size: calc(14px + 0.7vw);
-        font-weight: bold;
-        color: #3b2c5b;
+        font-weight: 400;
+        color: #ffffff;
+        margin: 2px;
+        }
+
+        .atendimento {
+        text-align: center;
+        font-size: calc(14px + 0.7vw);
+        font-weight: 600;
+        color: #000000;
         margin: 2px;
         }
 
@@ -112,7 +129,7 @@
         padding: 10px 5%;
         margin-top: 10px;
         font-size: calc(6px + 0.7vw);
-        font-weight: bold;
+        font-weight: 600;
         color: #3b2c5b;
         text-decoration: none;
         text-align: center;
@@ -208,7 +225,7 @@
 
         <footer>
             <div class="aviso_aberto">
-                <h1>A Bemol farma segue</h1>
+                <h2>A Bemol farma segue</h2>
                 <h1><b>conectada com você!</b></h1>
             </div>
             <div class="central_atendimento">
@@ -226,8 +243,8 @@
                         </a>
                     </div>
                 </div>
-                <h2>Central de Atendimento Bemol</h2>
-                <h2>0800 726 8300</h2>
+                <h1 class="atendimento">Central de Atendimento Bemol</h1>
+                <h1 class="atendimento">0800 726 8300</h1>
             </div>
         </footer>
     </div>
