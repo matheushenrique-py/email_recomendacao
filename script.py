@@ -145,19 +145,16 @@ def linkar(df_recom, df_prod):
 
 # função da formatação do json dos emails
 def email_campos(i):
-    try:
-        return {"nm_envio": nome, "nm_email": df_recom['e-mail'][i], "nm_subject": teste_assunto + assunto,
-               "nm_remetente": "Bemol Online", "email_remetente": "no-reply@bemol.com.br", "nm_reply": "no-reply@bemol.com.br",
-               "dt_envio": data_fuso.strftime('%Y-%m-%d'), "hr_envio": data_fuso.now().strftime('%H:%M:%S'),
-               "campos":"nome_produto1,nome_produto2,nome_produto3,preco_produto1,preco_produto2,preco_produto3,parcela_produto1,parcela_produto2,parcela_produto3,link_produto1,link_produto2,link_produto3,img_produto1,img_produto2,img_produto3",
-               "valor": df_prod['Nome'][df_recom['Recom1'][i]] + "," + df_prod['Nome'][df_recom['Recom2'][i]] + "," + df_prod['Nome'][df_recom['Recom3'][i]] + "," +
-                        "{:.2f}".format(df_prod['Preco'][df_recom['Recom1'][i]]) + "," + "{:.2f}".format(df_prod['Preco'][df_recom['Recom2'][i]]) + "," + "{:.2f}".format(df_prod['Preco'][df_recom['Recom3'][i]]) + "," +
-                        "{:.2f}".format(df_prod['Preco'][df_recom['Recom1'][i]]/4) + "," + "{:.2f}".format(df_prod['Preco'][df_recom['Recom2'][i]]/4) + "," + "{:.2f}".format(df_prod['Preco'][df_recom['Recom3'][i]]/4) + "," +
-                        df_prod['Link'][df_recom['Recom1'][i]] + "," + df_prod['Link'][df_recom['Recom2'][i]] + "," + df_prod['Link'][df_recom['Recom3'][i]] + "," +
-                        df_prod['Imagem'][df_recom['Recom1'][i]] + "," + df_prod['Imagem'][df_recom['Recom2'][i]] + "," + df_prod['Imagem'][df_recom['Recom3'][i]],
-                }
-    except KeyError: # caso não tenha o código do produto na BOL...
-        pass
+    return {"nm_envio": nome, "nm_email": df_recom['e-mail'][i], "nm_subject": teste_assunto + assunto,
+           "nm_remetente": "Bemol Online", "email_remetente": "no-reply@bemol.com.br", "nm_reply": "no-reply@bemol.com.br",
+           "dt_envio": data_fuso.strftime('%Y-%m-%d'), "hr_envio": data_fuso.now().strftime('%H:%M:%S'),
+           "campos":"nome_produto1,nome_produto2,nome_produto3,preco_produto1,preco_produto2,preco_produto3,parcela_produto1,parcela_produto2,parcela_produto3,link_produto1,link_produto2,link_produto3,img_produto1,img_produto2,img_produto3",
+           "valor": df_prod['Nome'][df_recom['Recom1'][i]] + "," + df_prod['Nome'][df_recom['Recom2'][i]] + "," + df_prod['Nome'][df_recom['Recom3'][i]] + "," +
+                    "{:.2f}".format(df_prod['Preco'][df_recom['Recom1'][i]]) + "," + "{:.2f}".format(df_prod['Preco'][df_recom['Recom2'][i]]) + "," + "{:.2f}".format(df_prod['Preco'][df_recom['Recom3'][i]]) + "," +
+                    "{:.2f}".format(df_prod['Preco'][df_recom['Recom1'][i]]/4) + "," + "{:.2f}".format(df_prod['Preco'][df_recom['Recom2'][i]]/4) + "," + "{:.2f}".format(df_prod['Preco'][df_recom['Recom3'][i]]/4) + "," +
+                    df_prod['Link'][df_recom['Recom1'][i]] + "," + df_prod['Link'][df_recom['Recom2'][i]] + "," + df_prod['Link'][df_recom['Recom3'][i]] + "," +
+                    df_prod['Imagem'][df_recom['Recom1'][i]] + "," + df_prod['Imagem'][df_recom['Recom2'][i]] + "," + df_prod['Imagem'][df_recom['Recom3'][i]],
+            }
 
 # função de envio do lote de emails
 def envio(inicio, fim):
@@ -222,6 +219,7 @@ if __name__ == '__main__':
     df_recom = ler_recomendacoes(args.arq_csv)
     df_prod = ler_db_produtos(args.site)
     df_recom.drop(linkar(df_recom, df_prod), axis='index', inplace=True)
+    df_recom.index = range(len(df_recom))
 
     # envio dos emails dividindo por lotes
     LEN_REQ = args.lote
@@ -233,7 +231,6 @@ if __name__ == '__main__':
         envio(k*LEN_REQ, len(df_recom['e-mail']))
     else:
         envio(0, len(df_recom['e-mail']))
-
 
 # TODO: tratar exceções: quando não achar o produto pelo codigo, quando não houver imagem, etc...
 # TODO: emojis!
