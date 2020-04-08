@@ -50,7 +50,7 @@ def ler_recomendacoes(arq):
     if is_teste:
         df = df.iloc[0:4, :]
         df['e-mail'] = ['matheusamorim@bemol.com.br', 'matheusamorim@bemol.com.br',
-                        'matheushenrique.py@gmail.com', 'matheusamorim@bemol.com.br']
+                        'matheushenrique.py@gmail.com', 'sheilanobrega@bemol.com.br']
         #df['e-mail'] = ['sheilanobrega@bemol.com.br', 'lucasalmeida@bemol.com.br',
         #                'zulemavera@bemol.com.br', 'rafaelasousa@bemol.com.br', 'matheusamorim@bemol.com.br']
 
@@ -138,10 +138,15 @@ def linkar(df_recom, df_prod):
             for j in range(len(df_link.columns)):
                 if df_link.iloc[i, j] > 5:
                     count += 1
-            if count < 3:
+            if count < 2:
                 excluidos.append(i)
 
     return excluidos
+
+def select_recomend(df):
+    for i in range(len(df)):
+        for j in range(len(df.loc[:['Recom1', 'Recom2', 'Recom3', 'Recom4', 'Recom5']])):
+            df.iloc[i,:]
 
 # função da formatação do json dos emails
 def email_campos(i):

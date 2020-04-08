@@ -2,240 +2,76 @@
 <!-- HTML 4 -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <!-- HTML5 -->
-<meta charset="utf-8"/>
+<meta charset="utf-8">
 <head>
 
-    <style>
 
-        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap');
-
-        body {
-        font-family: "Open Sans", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        background-color: #ffffff;
-        }
-
-        a {
-        font-weight: 500;
-        font-size: 62%;
-        color: #000000;
-        text-decoration: none;
-        text-align: center;
-        float: center;
-        display: block;
-        border: 0;
-        }
-
-        strong {
-        font-weight: 700;
-        color: #166bb3;
-        font-size: calc(18px + 0.7vw);
-        display: block;
-        text-transform: capitalize;
-        }
-
-        em {
-        font-style: normal;
-        font-weight: 600;
-        font-size: calc(9px + 0.7vw);
-        display: block;
-        margin-top: 10px;
-        }
-
-        small {
-        color: #444444;
-        font-size: calc(3px + 0.7vw);
-        font-weight: 600;
-        display: block;
-        }
-
-        h1 {
-        text-align: center;
-        font-size: calc(20px + 0.7vw);
-        font-weight: 800;
-        color: #ffffff;
-        margin: 1px;
-        }
-
-        h2 {
-        text-align: center;
-        font-size: calc(18px + 0.7vw);
-        font-weight: 400;
-        color: #ffffff;
-        margin: 1px;
-        }
-
-        .atendimento {
-        text-align: center;
-        font-size: calc(14px + 0.7vw);
-        font-weight: 700;
-        color: #000000;
-        margin: 2px;
-        }
-
-        .corpo {
-        max-width: 700px;
-        margin: auto;
-        display: block;
-        overflow: auto;
-        background-color: #ffffff;
-        }
-
-        .cabecalho {
-        max-width: 100%;
-        height: auto;
-        object-fit: scale-down;
-        }
-
-        .recomendacao {
-        width: calc(100% - 40px);
-        margin: 20px;
-        display: table;
-        }
-
-        .esquerda {
-        width: 50%;
-        text-align: left;
-        float: left;
-        display: inline;
-        }
-
-        .direita {
-        width: 50%;
-        text-align: right;
-        float: right;
-        display: inline;
-        }
-
-        .img_produto {
-        width: 98%;
-        max-height: 200px;
-        object-fit: scale-down;
-        }
-
-        .bt_comprar {
-        display: inline-block;
-        width: 50%;
-        padding: 10px 5%;
-        margin-top: 10px;
-        font-size: calc(6px + 0.7vw);
-        font-weight: 600;
-        color: #3b2c5b;
-        text-decoration: none;
-        text-align: center;
-        border-radius: 10px;
-        background: #accbee; /* Old browsers */
-        background: -moz-linear-gradient(45deg,  #accbee 0%, #aeccef 48%, #c9ddf5 89%, #d1e3f8 99%, #d7e6f9 100%); /* FF3.6-15 */
-        background: -webkit-linear-gradient(45deg,  #accbee 0%,#aeccef 48%,#c9ddf5 89%,#d1e3f8 99%,#d7e6f9 100%); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(45deg,  #accbee 0%,#aeccef 48%,#c9ddf5 89%,#d1e3f8 99%,#d7e6f9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#accbee', endColorstr='#d7e6f9',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-        }
-
-        .rodape {
-        max-width: 100%;
-        height: auto;
-        object-fit: scale-down;
-        }
-
-        .aviso_aberto {
-        background-color: #0986e0;
-        padding: 5%;
-        }
-
-        .central_atendimento {
-        padding: 20px 0;
-        display: block;
-        }
-
-        .social_conjunto {
-        padding-left: 40%;
-        padding-right: 40%;
-        display: block;
-        }
-
-        .redes_sociais {
-        width: 42%;
-        display: inline-block;
-        margin: 2%;
-        }
-
-        .logo_social {
-        margin: auto;
-        padding-bottom: 5px;
-        display: block;
-        width: 75%;
-        height: 90%;
-        height: auto;
-        object-fit: scale-down;
-        }
-    </style>
 </head>
-<body>
-    <div class="corpo">
+<body style="font-family: 'Open Sans', sans-serif; font-weight: 400; font-style: normal; background-color: #ffffff;">
+    <div class="corpo" style="max-width: 700px; margin: auto; display: block; overflow: auto; background-color: #ffffff;">
         <header>
-            <a href="https://www.bemolfarma.com.br">
-            <img src="https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/imgs/cabecalho_farma.png", alt="logo Lojas Bemol", class="cabecalho"></a>
+            <a href="https://www.bemolfarma.com.br" style="font-weight: 500; font-size: 62%; color: #000000; text-decoration: none; text-align: center; float: right; display: block; border: 0;">
+            <img src="https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/imgs/cabecalho_farma.png" ,="" alt="logo Lojas Bemol" class="cabecalho" style="max-width: 100%; height: auto; object-fit: scale-down;"></a>
         </header>
 
-        <div class="recomendacao">
-            <div class="esquerda">
-                <img src="{{img_produto1}}", class="img_produto", alt="{{nome_produto1}}">
+        <div class="recomendacao" style="width: calc(100% - 40px); margin: 20px; display: table;">
+            <div class="esquerda" style="width: 50%; text-align: left; float: left; display: inline;">
+                <img src="{{img_produto1}}" ,="" class="img_produto" alt="{{nome_produto1}}" style="width: 98%; max-height: 200px; object-fit: scale-down;">
             </div>
-            <div class="direita">
-                <em>{{nome_produto1}}</em>
-                <strong>R$ {{preco_produto1}}</strong>
-                <small>4x de R$ {{parcela_produto1}} no Cartão Bemol</small>
-                <a href="{{link_produto1}}", class="bt_comprar">COMPRAR</a>
-            </div>
-        </div>
-
-        <div class="recomendacao">
-            <div class="esquerda">
-                <em>{{nome_produto2}}</em>
-                <strong>R$ {{preco_produto2}}</strong>
-                <small>4x de R$ {{parcela_produto2}} no Cartão Bemol</small>
-                <a href="{{link_produto2}}", class="bt_comprar">COMPRAR</a>
-            </div>
-            <div class="direita">
-                <img src="{{img_produto2}}", class="img_produto", alt="{{nome_produto2}}">
+            <div class="direita" style="width: 50%; text-align: right; float: right; display: inline;">
+                <em style="font-style: normal; font-weight: 600; font-size: calc(9px + 0.7vw); display: block; margin-top: 10px;">{{nome_produto1}}</em>
+                <strong style="font-weight: 700; color: #166bb3; font-size: calc(18px + 0.7vw); display: block; text-transform: capitalize;">R$ {{preco_produto1}}</strong>
+                <small style="color: #444444; font-size: calc(3px + 0.7vw); font-weight: 600; display: block;">4x de R$ {{parcela_produto1}} no Cartão Bemol</small>
+                <a href="{{link_produto1}}" ,="" class="bt_comprar" style="float: right; border: 0; display: inline-block; width: 50%; padding: 10px 5%; margin-top: 10px; font-size: calc(6px + 0.7vw); font-weight: 600; color: #3b2c5b; text-decoration: none; text-align: center; border-radius: 10px; background: #accbee; background: -moz-linear-gradient(45deg,  #accbee 0%, #aeccef 48%, #c9ddf5 89%, #d1e3f8 99%, #d7e6f9 100%); background: -webkit-linear-gradient(45deg,  #accbee 0%,#aeccef 48%,#c9ddf5 89%,#d1e3f8 99%,#d7e6f9 100%); background: linear-gradient(45deg,  #accbee 0%,#aeccef 48%,#c9ddf5 89%,#d1e3f8 99%,#d7e6f9 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#accbee', endColorstr='#d7e6f9',GradientType=1 );">COMPRAR</a>
             </div>
         </div>
 
-        <div class="recomendacao">
-            <div class="esquerda">
-                <img src="{{img_produto3}}", class="img_produto", alt="{{nome_produto3}}">
+        <div class="recomendacao" style="width: calc(100% - 40px); margin: 20px; display: table;">
+            <div class="esquerda" style="width: 50%; text-align: left; float: left; display: inline;">
+                <em style="font-style: normal; font-weight: 600; font-size: calc(9px + 0.7vw); display: block; margin-top: 10px;">{{nome_produto2}}</em>
+                <strong style="font-weight: 700; color: #166bb3; font-size: calc(18px + 0.7vw); display: block; text-transform: capitalize;">R$ {{preco_produto2}}</strong>
+                <small style="color: #444444; font-size: calc(3px + 0.7vw); font-weight: 600; display: block;">4x de R$ {{parcela_produto2}} no Cartão Bemol</small>
+                <a href="{{link_produto2}}" ,="" class="bt_comprar" style="float: right; border: 0; display: inline-block; width: 50%; padding: 10px 5%; margin-top: 10px; font-size: calc(6px + 0.7vw); font-weight: 600; color: #3b2c5b; text-decoration: none; text-align: center; border-radius: 10px; background: #accbee; background: -moz-linear-gradient(45deg,  #accbee 0%, #aeccef 48%, #c9ddf5 89%, #d1e3f8 99%, #d7e6f9 100%); background: -webkit-linear-gradient(45deg,  #accbee 0%,#aeccef 48%,#c9ddf5 89%,#d1e3f8 99%,#d7e6f9 100%); background: linear-gradient(45deg,  #accbee 0%,#aeccef 48%,#c9ddf5 89%,#d1e3f8 99%,#d7e6f9 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#accbee', endColorstr='#d7e6f9',GradientType=1 );">COMPRAR</a>
             </div>
-            <div class="direita">
-                <em>{{nome_produto3}}</em>
-                <strong>R$ {{preco_produto3}}</strong>
-                <small>4x de R$ {{parcela_produto3}} no Cartão Bemol</small>
-                <a href="{{link_produto3}}", class="bt_comprar">COMPRAR</a>
+            <div class="direita" style="width: 50%; text-align: right; float: right; display: inline;">
+                <img src="{{img_produto2}}" ,="" class="img_produto" alt="{{nome_produto2}}" style="width: 98%; max-height: 200px; object-fit: scale-down;">
+            </div>
+        </div>
+
+        <div class="recomendacao" style="width: calc(100% - 40px); margin: 20px; display: table;">
+            <div class="esquerda" style="width: 50%; text-align: left; float: left; display: inline;">
+                <img src="{{img_produto3}}" ,="" class="img_produto" alt="{{nome_produto3}}" style="width: 98%; max-height: 200px; object-fit: scale-down;">
+            </div>
+            <div class="direita" style="width: 50%; text-align: right; float: right; display: inline;">
+                <em style="font-style: normal; font-weight: 600; font-size: calc(9px + 0.7vw); display: block; margin-top: 10px;">{{nome_produto3}}</em>
+                <strong style="font-weight: 700; color: #166bb3; font-size: calc(18px + 0.7vw); display: block; text-transform: capitalize;">R$ {{preco_produto3}}</strong>
+                <small style="color: #444444; font-size: calc(3px + 0.7vw); font-weight: 600; display: block;">4x de R$ {{parcela_produto3}} no Cartão Bemol</small>
+                <a href="{{link_produto3}}" ,="" class="bt_comprar" style="float: right; border: 0; display: inline-block; width: 50%; padding: 10px 5%; margin-top: 10px; font-size: calc(6px + 0.7vw); font-weight: 600; color: #3b2c5b; text-decoration: none; text-align: center; border-radius: 10px; background: #accbee; background: -moz-linear-gradient(45deg,  #accbee 0%, #aeccef 48%, #c9ddf5 89%, #d1e3f8 99%, #d7e6f9 100%); background: -webkit-linear-gradient(45deg,  #accbee 0%,#aeccef 48%,#c9ddf5 89%,#d1e3f8 99%,#d7e6f9 100%); background: linear-gradient(45deg,  #accbee 0%,#aeccef 48%,#c9ddf5 89%,#d1e3f8 99%,#d7e6f9 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#accbee', endColorstr='#d7e6f9',GradientType=1 );">COMPRAR</a>
             </div>
         </div>
 
         <footer>
-            <div class="aviso_aberto">
-                <h2>A Bemol farma segue</h2>
-                <h1><b>conectada com você!</b></h1>
+            <div class="aviso_aberto" style="background-color: #0986e0; padding: 5%;">
+                <h2 style="text-align: center; font-size: calc(18px + 0.7vw); font-weight: 400; color: #ffffff; margin: 1px;">A Bemol farma segue</h2>
+                <h1 style="text-align: center; font-size: calc(20px + 0.7vw); font-weight: 800; color: #ffffff; margin: 1px;"><b>conectada com você!</b></h1>
             </div>
-            <div class="central_atendimento">
-                <div class="social_conjunto">
-                    <div class="redes_sociais">
-                        <a href="https://www.facebook.com/BemolFarma">
-                            <img src="https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/imgs/face_2.png", class="logo_social">
+            <div class="central_atendimento" style="padding: 20px 0; display: block;">
+                <div class="social_conjunto" style="padding-left: 40%; padding-right: 40%; display: block;">
+                    <div class="redes_sociais" style="width: 42%; display: inline-block; margin: 2%;">
+                        <a href="https://www.facebook.com/BemolFarma" style="font-weight: 500; font-size: 62%; color: #000000; text-decoration: none; text-align: center; float: right; display: block; border: 0;">
+                            <img src="https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/imgs/face_2.png" ,="" class="logo_social" style="margin: auto; padding-bottom: 5px; padding-right: 5px; display: block; width: 75%; height: 90%; height: auto; object-fit: scale-down; float: right;">
                             facebook
                         </a>
                     </div>
-                    <div class="redes_sociais">
-                        <a href="https://www.instagram.com/bemolfarma/">
-                            <img src="https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/imgs/insta_2.png", class="logo_social">
+                    <div class="redes_sociais" style="width: 42%; display: inline-block; margin: 2%;">
+                        <a href="https://www.instagram.com/bemolfarma/" style="font-weight: 500; font-size: 62%; color: #000000; text-decoration: none; text-align: center; float: right; display: block; border: 0;">
+                            <img src="https://github.com/matheushenrique-py/email_recomendacao/raw/master/data/imgs/insta_2.png" ,="" class="logo_social" style="margin: auto; padding-bottom: 5px; padding-right: 5px; display: block; width: 75%; height: 90%; height: auto; object-fit: scale-down; float: right;">
                             instagram
                         </a>
                     </div>
                 </div>
-                <h1 class="atendimento">Central de Atendimento Bemol</h1>
-                <h1 class="atendimento">0800 726 8300</h1>
+                <h1 class="atendimento" style="text-align: center; font-size: calc(14px + 0.7vw); font-weight: 700; color: #000000; margin: 2px;">Central de Atendimento Bemol</h1>
+                <h1 class="atendimento" style="text-align: center; font-size: calc(14px + 0.7vw); font-weight: 700; color: #000000; margin: 2px;">0800 726 8300</h1>
             </div>
         </footer>
     </div>
