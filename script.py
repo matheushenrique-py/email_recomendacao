@@ -13,46 +13,33 @@ import numpy as np
 # headers para requisição para a API
 url = "http://transacional-apiv2.allin.com.br/api/email/bulk"
 
-'''até onde pude notar, o fuso-horário é tratado pela API.
+'''até onde pude notar, o fuso-horário é tratado pela API da AllIn.
 O e-mail enviado no meu fuso horário (-3) é recebido no mesmo momento
 lá em Manaus (-4).
-Deixo o fuso apenas para deixar claro em que localização de referência 
+Deixo o fuso apenas para deixar claro qual a localização de referência 
 '''
 data_fuso = pytz.timezone('America/Recife').localize(datetime.now())
 
 
 def ler_recomendacoes(arq):
     # Leitura da base de recomendações
-    recom = pd.read_csv(arq, sep='\t')
+    recom = pd.read_csv(arq, sep=',', dtype={'Cod Recom': np.int64})
     recom['e-mail'] = recom['e-mail'].apply(lambda x: x.replace(' ', ''))
-    recom = recom[recom.Estoque > 5]
+    #recom = recom[recom.Estoque > 5] Giovani já faz esse filtro
+    print(len(recom))
 
     # Organização da base de recomendações com as três colunas
     recomendacoes = []
     for pessoa in recom['CodCliente'].unique():
         recomendacoes.append(recom['Cod Recom'][recom['CodCliente'] == pessoa].values.tolist())
 
-    for i in range(len(recomendacoes)):
-        for j in range(2):
-            try:
-                recomendacoes[i, j]
-            except:
-                recomendacoes[i].append(np.NaN)
-            recomendacoes[i] = recomendacoes[i][0:3]
-
     # formatação do DataFrame com as recomendações organizadas
-    df = pd.DataFrame(data=recomendacoes, index=recom['CodCliente'].unique(), columns=['Recom1', 'Recom2', 'Recom3'])
+    df = pd.DataFrame(data=recomendacoes, index=recom['CodCliente'].unique(),
+                      columns=['Recom1', 'Recom2', 'Recom3', 'Recom4', 'Recom5'])
     df.index.name = 'Cliente'
     df = df.merge(recom.loc[:, ['CodCliente', 'e-mail']].drop_duplicates(), left_on='Cliente', right_on='CodCliente')
-    df.dropna(subset=['Recom3'], axis=0,  inplace=True)
+    #df.dropna(subset=['Recom3'], axis=0,  inplace=True)
     df.index = range(len(df))
-
-    if is_teste:
-        df = df.iloc[0:4, :]
-        df['e-mail'] = ['matheusamorim@bemol.com.br', 'matheusamorim@bemol.com.br',
-                        'matheushenrique.py@gmail.com', 'sheilanobrega@bemol.com.br']
-        #df['e-mail'] = ['sheilanobrega@bemol.com.br', 'lucasalmeida@bemol.com.br',
-        #                'zulemavera@bemol.com.br', 'rafaelasousa@bemol.com.br', 'matheusamorim@bemol.com.br']
 
     return df
 
@@ -89,77 +76,33 @@ def ler_db_produtos(site):
 
     return df
 
-
-def linkar(df_recom, df_prod):
-    a, b, c, d, e = ([] for i in range(5))
-
-    for i in range(len(df_recom)):
-        try:
-            if df_prod['Imagem'][df_recom['Recom1'][i]].find('sem-foto.gif') > 0:
-                a.append(-2)
-            else:
-                a.append(df_prod['Preco'][df_recom['Recom1'][i]])
-        except:
-            a.append(-1)
-        try:
-            if df_prod['Imagem'][df_recom['Recom2'][i]].find('sem-foto.gif') > 0:
-                b.append(-2)
-            else:
-                b.append(df_prod['Preco'][df_recom['Recom2'][i]])
-        except:
-            b.append(-1)
-        try:
-            if df_prod['Imagem'][df_recom['Recom3'][i]].find('sem-foto.gif') > 0:
-                c.append(-2)
-            else:
-                c.append(df_prod['Preco'][df_recom['Recom3'][i]])
-        except:
-            c.append(-1)
-        try:
-            if df_prod['Imagem'][df_recom['Recom4'][i]].find('sem-foto.gif') > 0:
-                d.append(-2)
-            else:
-                d.append(df_prod['Preco'][df_recom['Recom4'][i]])
-        except:
-            d.append(-1)
-        try:
-            if df_prod['Imagem'][df_recom['Recom5'][i]].find('sem-foto.gif') > 0:
-                e.append(-2)
-            else:
-                e.append(df_prod['Preco'][df_recom['Recom5'][i]])
-        except:
-            e.append(-1)
-
-        df_link = pd.DataFrame({'Recom1': a, 'Recom2': b, 'Recom3': c, 'Recom4': d, 'Recom5': e})
-
-        excluidos = []
-        for i in range(len(df_link)):
-            count = 0
-            for j in range(len(df_link.columns)):
-                if df_link.iloc[i, j] > 5:
-                    count += 1
-            if count < 2:
-                excluidos.append(i)
-
-    return excluidos
-
-def select_recomend(df):
-    for i in range(len(df)):
-        for j in range(len(df.loc[:['Recom1', 'Recom2', 'Recom3', 'Recom4', 'Recom5']])):
-            df.iloc[i,:]
-
 # função da formatação do json dos emails
 def email_campos(i):
+
+    produtos = []
+    for j in range(1, 6):
+        try:
+            if df_prod['Imagem'][df_recom['Recom'+str(j)][i]].find('sem-foto.gif') == -1:
+                produtos.append(df_recom['Recom'+str(j)][i])
+        except:
+            pass
+
+    if len(produtos) < 3:
+        return None
+    #elif len(produtos) == 2:
+    #    produtos.append(6010353.0) #antibacteriano
+
     return {"nm_envio": nome, "nm_email": df_recom['e-mail'][i], "nm_subject": teste_assunto + assunto,
            "nm_remetente": "Bemol Online", "email_remetente": "no-reply@bemol.com.br", "nm_reply": "no-reply@bemol.com.br",
            "dt_envio": data_fuso.strftime('%Y-%m-%d'), "hr_envio": data_fuso.now().strftime('%H:%M:%S'),
            "campos":"nome_produto1,nome_produto2,nome_produto3,preco_produto1,preco_produto2,preco_produto3,parcela_produto1,parcela_produto2,parcela_produto3,link_produto1,link_produto2,link_produto3,img_produto1,img_produto2,img_produto3",
-           "valor": df_prod['Nome'][df_recom['Recom1'][i]] + "," + df_prod['Nome'][df_recom['Recom2'][i]] + "," + df_prod['Nome'][df_recom['Recom3'][i]] + "," +
-                    "{:.2f}".format(df_prod['Preco'][df_recom['Recom1'][i]]) + "," + "{:.2f}".format(df_prod['Preco'][df_recom['Recom2'][i]]) + "," + "{:.2f}".format(df_prod['Preco'][df_recom['Recom3'][i]]) + "," +
-                    "{:.2f}".format(df_prod['Preco'][df_recom['Recom1'][i]]/4) + "," + "{:.2f}".format(df_prod['Preco'][df_recom['Recom2'][i]]/4) + "," + "{:.2f}".format(df_prod['Preco'][df_recom['Recom3'][i]]/4) + "," +
-                    df_prod['Link'][df_recom['Recom1'][i]] + "," + df_prod['Link'][df_recom['Recom2'][i]] + "," + df_prod['Link'][df_recom['Recom3'][i]] + "," +
-                    df_prod['Imagem'][df_recom['Recom1'][i]] + "," + df_prod['Imagem'][df_recom['Recom2'][i]] + "," + df_prod['Imagem'][df_recom['Recom3'][i]],
+           "valor": df_prod['Nome'][produtos[0]] + "," + df_prod['Nome'][produtos[1]] + "," + df_prod['Nome'][produtos[2]] + "," +
+                    "{:.2f}".format(df_prod['Preco'][produtos[0]]) + "," + "{:.2f}".format(df_prod['Preco'][produtos[1]]) + "," + "{:.2f}".format(df_prod['Preco'][produtos[2]]) + "," +
+                    "{:.2f}".format(df_prod['Preco'][produtos[0]]/4) + "," + "{:.2f}".format(df_prod['Preco'][produtos[1]]/4) + "," + "{:.2f}".format(df_prod['Preco'][produtos[2]]/4) + "," +
+                    df_prod['Link'][produtos[0]] + "," + df_prod['Link'][produtos[1]] + "," + df_prod['Link'][produtos[2]] + "," +
+                    df_prod['Imagem'][produtos[0]] + "," + df_prod['Imagem'][produtos[1]] + "," + df_prod['Imagem'][produtos[2]],
             }
+
 
 # função de envio do lote de emails
 def envio(inicio, fim):
@@ -167,15 +110,13 @@ def envio(inicio, fim):
         file = open('data/logs/log_teste' + str(data_fuso.strftime('%Y-%m-%d')), 'a')
     else:
         file = open('data/logs/log_' + str(data_fuso.strftime('%Y-%m-%d')), 'a')
-    file.write('*** envio dia ' + str(data_fuso.strftime('%Y-%m-%d')) + ' envio nº ' + str(int(inicio/LEN_REQ)) + '***\n')
+    file.write('*** envio ' + nome + ' dia ' + str(data_fuso.strftime('%Y-%m-%d')) + ' envio nº ' + str(int(inicio/LEN_REQ)) + '***\n')
 
     corpo_emails = []
     for i in range(inicio, fim):
         if email_campos(i) is not None:
             corpo_emails.append(email_campos(i))
             file.write(email_campos(i)['nm_email'] + ' - '+ email_campos(i)['valor']+ '\n\n')
-        else:
-            print('produto não encontrado')
 
     corpo_completo = {"emails": corpo_emails, "html": template}
     response = requests.post(url, headers=headers, json=corpo_completo)
@@ -222,9 +163,18 @@ if __name__ == '__main__':
         headers = json.load(file)
 
     df_recom = ler_recomendacoes(args.arq_csv)
+    print('Temos inicialmente ' + str(len(df_recom)) + ' clientes')
+    if is_teste:
+        #df_recom = df_recom.iloc[0:10000, :]
+        df_recom['e-mail'] = ['sheilanobrega@bemol.com.br' for x in range(len(df_recom['e-mail']))]
+        #df_recom['e-mail'] = ['matheusamorim@bemol.com.br', 'matheusamorim@bemol.com.br',
+        #                'matheushenrique.py@gmail.com', 'matheusamorim@bemol.com.br']
+        #df_recom['e-mail'] = ['matheusamorim@bemol.com.br', 'lucasalmeida@bemol.com.br',
+        #                'lucasalmeida@bemol.com.br', 'matheusamorim@bemol.com.br', 'matheusamorim@bemol.com.br']
+        #df_recom.to_csv('clientes.csv', sep=';', index=False)
     df_prod = ler_db_produtos(args.site)
-    df_recom.drop(linkar(df_recom, df_prod), axis='index', inplace=True)
-    df_recom.index = range(len(df_recom))
+
+
 
     # envio dos emails dividindo por lotes
     LEN_REQ = args.lote
@@ -237,6 +187,7 @@ if __name__ == '__main__':
     else:
         envio(0, len(df_recom['e-mail']))
 
+# TODO: extrair os dados de emails enviados e barrados
 # TODO: tratar exceções: quando não achar o produto pelo codigo, quando não houver imagem, etc...
 # TODO: emojis!
 # TODO: como mudar o ponto para vírgula??????????
